@@ -1,4 +1,4 @@
-# The Flare jQuery plugin 
+# The Flare jQuery Plugin 
 
 ## Description
 
@@ -7,7 +7,7 @@ The flare is white in the center and has a customizable colored glow.  The plugi
 
 ## Features 
 
-* Cool movie-style effect.
+* Cool movie-style effect also used in games such as Sleeping Dogs.
 * Works in Chrome, Firefox, and Safari, and IE 10 including mobile.
 * Uses modern CSS techniques.
 * Customizable glow color, speed, glow radius, and trigger event.
@@ -57,4 +57,4 @@ The glow radius is actually the density, the lower the number the less glow.
 $('.box').flare( {action: 'click', backgroundColor: '#0f0', speed: 1000, glowRadius: '15'} );
 ```
 
-For a demonstration of usage and examples visit [online demo](http://RunAstartup.com/flare-jquery-plugin/)
+For a demonstration of usage and examples visit [the demo page](http://RunAstartup.com/flare-jquery-plugin/)
