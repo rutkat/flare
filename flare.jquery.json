@@ -9,7 +9,7 @@
         "flares",
         "ui"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": {
         "name": "Tom Rutka",
         "url": "http://runastartup.com"
@@ -21,9 +21,9 @@
         }
     ],
     "homepage": "http://runastartup.com/flare-jquery-plugin",
-    "docs": "https://github.com/jquery/flare",
+    "docs": "https://github.com/rutkat/flare",
     "download": "https://github.com/rutkat/flare",
     "dependencies": {
-        "jquery": ">=1.7"
+        "jquery": ">=1.9.1"
     }
 }
