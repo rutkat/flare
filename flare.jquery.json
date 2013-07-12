@@ -1,7 +1,7 @@
 {
     "name": "flare",
     "title": "Optical Flare FX",
-    "description": "jQuery plugin to animate and optical flare sliding across your web element.",
+    "description": "jQuery plugin which renders an optical flares across web elements. As seen on sci-fi movies and games",
     "keywords": [
         "optical",
         "flare",
