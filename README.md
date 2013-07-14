@@ -43,9 +43,9 @@ Finally initialise the plugin selecting the element or elements where you want t
 The default trigger event is 'mouseenter' so the flare will activate when you mouse over the target element.
 You'll probably want to change the glow color, so add a parameter to the flare function as in the 2nd line.
 ```javascript
- $('.block').flare();
+ $('.box').flare();
  // change color to green
- $('.block').flare({backgroundColor: '#0f0'})
+ $('.box').flare({backgroundColor: '#0f0'})
 ```
 
 ## Advanced usage
