@@ -40,7 +40,7 @@ At the minimum you need a div tag with as a block display and a margin or paddin
 ```
 
 Finally initialise the plugin selecting the element or elements where you want the flare.
-The default trigger event is 'mouseenter' so the flare will activate when you mouse over the target element.
+The default trigger event is 'click' and the target is the selector itself so the flare will activate when you click the target element.
 You'll probably want to change the glow color, so add a parameter to the flare function as in the 2nd line.
 ```javascript
  $('.box').flare();
@@ -54,7 +54,20 @@ For the event action choose one of the many jQuery trigger events available.  Ba
 The glow radius is actually the density, the lower the number the less glow.
 
 ```javascript
-$('.box').flare( {action: 'click', backgroundColor: '#0f0', speed: 1000, glowRadius: '15'} );
+$('.box').flare( {target: '#myDiv', action: 'click', backgroundColor: '#0f0', speed: 1000, glowRadius: '15'} );
 ```
 
 For a demonstration of usage and examples visit [the demo page](http://RunAstartup.com/flare-jquery-plugin/)
+
+## Change Log
+1.1.0
+```html
+  -Made animation smoother by fading out flare before it stops
+  -Changed default trigger event to mouse click
+  -Added option to separate the triggering event from the target area for the flare
+  -Renamed radius to density as it's more accurate
+```
+1.0.1
+```html
+  Added CSS styles for other browser support
+```

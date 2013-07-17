@@ -15,47 +15,52 @@
 
   $.fn.flare = function(options) {
 
-    // Set default values
+   // Set default values
     var defaults = $.extend({
-            action: "mouseenter",
+            target: this,
+            action: "click",
             backgroundColor: "#fff",
             speed: 1500,
-            glowRadius: 15  
+            glowDensity: 14  
         }, options ); 
 
   // Flare Unit
-  var unit = 0;  
+  var unit = 0;
+
+  var obj = $(defaults.target);  
 
   // Execute 
-  $(this).bind(defaults.action, function(){ 
+  $(this).bind( defaults.action, function(){ 
 
     // Increment flare count
     unit++;
 
     // Create flare element
-    $('body').append('<div id="tr-flare' + unit + '"><div class="tr-burst1"></div><div class="tr-burst2"></div><div class="tr-burst3"></div><div class="tr-burst4"></div><div class="bg-ver tr-glow"></div><div class="bg-hor tr-glow"></div> </div>');
+    $('body').append('<div id="tr-flare' + unit + '"><div class="tr-burst1"></div><div class="tr-burst2"></div><div class="tr-burst3"></div><div class="tr-burst4"></div><div class="bg-ver tr-glow"></div><div class="bg-hor tr-glow"></div>');
 
         // Set burst tyles
         $('.tr-glow')
-          .css({ 'box-shadow' : '0 0 40px ' + defaults.glowRadius + 'px ' + defaults.backgroundColor })
-          .css({ '-moz-box-shadow' : '0 0 40px ' + defaults.glowRadius + 'px ' + defaults.backgroundColor })
-          .css({ '-webkit-box-shadow' : '0 0 40px ' + defaults.glowRadius + 'px ' + defaults.backgroundColor });
+          .css({ 'box-shadow' : '0 0 40px ' + defaults.glowDensity + 'px ' + defaults.backgroundColor })
+          .css({ '-moz-box-shadow' : '0 0 40px ' + defaults.glowDensity + 'px ' + defaults.backgroundColor })
+          .css({ '-webkit-box-shadow' : '0 0 40px ' + defaults.glowDensity + 'px ' + defaults.backgroundColor });
 
         $('.bg-ver')
           .css({ position: 'absolute' })
           .css({ top: 40 })
           .css({ left: 60 })
           .css({ width: 0 })
-          .css({ height: 20 });
+          .css({ height: 20 })
+          .css({ 'z-index': 9997 });
 
         $('.bg-hor')
           .css({ position: 'absolute' })
           .css({ top: 50 })
-          .css({ left: 20 })
+          .css({ left: 15 })
           .css({ height: 0 })
-          .css({ width: 80 });
+          .css({ width: 90 })
+          .css({ 'z-index': 9997 });
 
-        $('.tr-burst1, .tr-burst2, .tr-burst3, .tr-burst4')
+     $('.tr-burst1, .tr-burst2, .tr-burst3, .tr-burst4')
           .css({ position: 'absolute' })
           .css({ top: 50 })
           .css({ left: 50 })
@@ -67,7 +72,7 @@
           .css({ '-moz-box-shadow': '0 0 8px 3px #fff' }) 
           .css({ '-webkit-box-shadow': '0 0 8px 3px #fff' });
 
-        $('.tr-burst1').css({ left: 35, width: 50 });
+        $('.tr-burst1').css({ left: 30, width: 60 });
 
         // rotate bursts
         $('.tr-burst2')
@@ -90,23 +95,27 @@
           .css({ '-ms-transform': 'rotate(-45deg)' });
            
     // Get target's dimensions
-    var myPos = $(this).offset();
-    var myWidth = $(this).outerWidth();
-    var myHeight = $(this).outerHeight();
+    var myPos = obj.offset();
+    var myWidth = obj.outerWidth();
+    var myHeight = obj.outerHeight();
 
      // Animate the flare
-        $('#tr-flare'+ unit)
+       $('#tr-flare'+ unit)
           // set starting position of flare's center point to target's corner
-          .css({position: 'absolute', display: 'none', top: myPos.top-50, left: myPos.left-55})          
+          .css({position: 'absolute', display: 'none', top: myPos.top-50, left: myPos.left-55})
           .fadeIn({ queue: false, duration: 250 })
           .animate({
-            left: myWidth+myPos.left-55
+              left: (myWidth*.8)+myPos.left-55
           },  defaults.speed, 'linear', function() {
-                $(this).fadeOut('normal', function() {
+                $(this).animate({
+                  opacity: 0,
+                  left: myWidth+myPos.left-55
+                }, defaults.speed/2, 'linear', function() {
                     $(this).remove();
                 });
             });
-  });
+
+  }); // end bind
     //to allow chaining
     return this;
   }
