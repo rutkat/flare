@@ -111,7 +111,7 @@
                   opacity: 0,
                   left: myWidth+myPos.left-55
                 }, defaults.speed/2, 'linear', function() {
-                    $(this).remove();
+                   this.parentNode.removeChild(this);
                 });
             });
 
